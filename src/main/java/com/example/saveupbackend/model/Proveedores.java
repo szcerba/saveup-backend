@@ -3,37 +3,44 @@ package com.example.saveupbackend.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "proveedor")
-public class Proveedor {
+@Table(name = "proveedores")
+public class Proveedores {
 
     @Id
     @GeneratedValue
     private Long id;
     private Boolean activo;
-    private String codigo;
     private String direccion;
+    private String mail;
     private String nombre;
     @Column(name = "nombre_fantasia")
     private String nombreFantasia;
     @Column(name = "numero_documento")
     private String numeroDocumento;
+    private String web;
     private String telefono;
     @ManyToOne
     @JoinColumn(name = "id_tipo_proveedor")
-    private Tipo tipoProveedor;
+    private Parametricos tipoProveedor;
     @ManyToOne
-    @JoinColumn(name = "id_tipo_documento")
-    private Tipo tipoDocumento;
+    @JoinColumn(name = "id_barrio")
+    private Parametricos barrio;
     @ManyToOne
-    @JoinColumn(name = "id_tipo_persona")
-    private Tipo tipoPersona;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @JoinColumn(name = "id_ciudad")
+    private Parametricos ciudad;
+    @ManyToOne
+    @JoinColumn(name = "id_pais")
+    private Parametricos pais;
+    @ManyToOne
+    @JoinColumn(name = "id_sucursal")
+    private Parametricos sucursal;
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Boolean getActivo() {
@@ -44,20 +51,20 @@ public class Proveedor {
         this.activo = activo;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
     public String getDireccion() {
         return direccion;
     }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getNombre() {
@@ -84,6 +91,14 @@ public class Proveedor {
         this.numeroDocumento = numeroDocumento;
     }
 
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
+    }
+
     public String getTelefono() {
         return telefono;
     }
@@ -92,27 +107,43 @@ public class Proveedor {
         this.telefono = telefono;
     }
 
-    public Tipo getTipoProveedor() {
+    public Parametricos getTipoProveedor() {
         return tipoProveedor;
     }
 
-    public void setTipoProveedor(Tipo tipoProveedor) {
+    public void setTipoProveedor(Parametricos tipoProveedor) {
         this.tipoProveedor = tipoProveedor;
     }
 
-    public Tipo getTipoDocumento() {
-        return tipoDocumento;
+    public Parametricos getBarrio() {
+        return barrio;
     }
 
-    public void setTipoDocumento(Tipo tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
+    public void setBarrio(Parametricos barrio) {
+        this.barrio = barrio;
     }
 
-    public Tipo getTipoPersona() {
-        return tipoPersona;
+    public Parametricos getCiudad() {
+        return ciudad;
     }
 
-    public void setTipoPersona(Tipo tipoPersona) {
-        this.tipoPersona = tipoPersona;
+    public void setCiudad(Parametricos ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public Parametricos getPais() {
+        return pais;
+    }
+
+    public void setPais(Parametricos pais) {
+        this.pais = pais;
+    }
+
+    public Parametricos getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Parametricos sucursal) {
+        this.sucursal = sucursal;
     }
 }

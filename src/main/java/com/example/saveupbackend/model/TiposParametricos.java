@@ -6,20 +6,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tipo_tipo")
-public class TipoTipo {
+@Table(name = "tipos_parametricos")
+public class TiposParametricos {
     @Id
     @GeneratedValue
     private Long id;
     private String codigo;
     private String descripcion;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCodigo() {
